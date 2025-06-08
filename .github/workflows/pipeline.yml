@@ -9,7 +9,7 @@ on:
       input_number:
         type: number
         required: true
-        default: 7
+        default: '7'
 
 jobs:
   step1:
