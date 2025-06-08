@@ -5,12 +5,12 @@ on:
     inputs:
       input_text:
         description: "Input text for the pipeline"
-        default: "Hello, World!"
+        default: ${{ env.INPUT_TEXT }}
         type: string
         required: true
       input_number:
         description: "Input number for the pipeline"
-        default: "42"
+        default: ${{ env.INPUT_NUMBER }}
         type: number
         required: true
 
