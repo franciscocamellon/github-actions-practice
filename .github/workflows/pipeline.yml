@@ -28,13 +28,13 @@ jobs:
       input_number: ${{ fromJson(needs.step1.outputs.output_number) }}
   step3:
     needs: step2
-    uses: ./.github/workflows/step2.yml
+    uses: ./.github/workflows/step3.yml
     with:
-      input_text: ${{ needs.step1.outputs.output_text }}
-      input_number: ${{ fromJson(needs.step1.outputs.output_number) }}
+      input_text: ${{ needs.step2.outputs.output_text }}
+      input_number: ${{ fromJson(needs.step2.outputs.output_number) }}
   step4:
     needs: step3
-    uses: ./.github/workflows/step2.yml
+    uses: ./.github/workflows/step4.yml
     with:
-      input_text: ${{ needs.step1.outputs.output_text }}
-      input_number: ${{ fromJson(needs.step1.outputs.output_number) }}
+      input_text: ${{ needs.step3.outputs.output_text }}
+      input_number: ${{ fromJson(needs.step3.outputs.output_number) }}
