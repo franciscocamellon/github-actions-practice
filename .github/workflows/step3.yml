@@ -1,4 +1,4 @@
-name: W3 reutilizável - Adiciona ao texto e dobra o número
+name: W3 reutilizável - Inverte o texto e multiplica o número por 3
 
 on:
   workflow_call:
@@ -31,8 +31,8 @@ jobs:
         run: |
           INPUT_TEXT="${{ inputs.input_text }}"
           INPUT_NUMBER=${{ inputs.input_number }}
-          FORMATTED_TEXT="${INPUT_TEXT}-${INPUT_NUMBER}"
-          MULTIPLIED_NUMBER=$(( INPUT_NUMBER * 2 ))
+          FORMATTED_TEXT="$(echo "$INPUT_TEXT" | rev)"
+          MULTIPLIED_NUMBER=$(( INPUT_NUMBER * 3 ))
 
           echo "output_text=$FORMATTED_TEXT" >> "$GITHUB_OUTPUT"
           echo "output_number=$MULTIPLIED_NUMBER" >> "$GITHUB_OUTPUT"
