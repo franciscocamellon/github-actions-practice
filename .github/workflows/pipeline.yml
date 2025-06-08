@@ -15,5 +15,5 @@ jobs:
   step1:
     uses: ./.github/workflows/step1.yml
     with:
-      input_text: '${{inputs.input_text}}'
-      input_number: ${{inputs.input_number}}
+      input_text: ${{ github.event.inputs.input_text }}
+      input_number: ${{ github.event.inputs.input_number }}
