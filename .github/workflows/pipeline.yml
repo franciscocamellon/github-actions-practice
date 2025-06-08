@@ -1,0 +1,19 @@
+name: Pipeline
+on:
+  workflow_dispatch:
+    inputs:
+      input_text:
+        default: 'John Snow'
+        type: string
+        required: true
+      input_number:
+        type: number
+        required: true
+        default: 7
+
+jobs:
+  step1:
+    uses: ./.github/workflows/step1.yml
+    with:
+      input_text: '${{inputs.input_text}}'
+      input_number: $((inputs.input_number))
