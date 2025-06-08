@@ -3,9 +3,9 @@ on:
   workflow_call:
     inputs:
       input_text:
+        default: 'John Snow'
         type: string
         required: true
-        default: John Snow
       input_number:
         type: number
         required: true
@@ -21,6 +21,6 @@ jobs:
         shell: bash
         run: |
           TEXT=${{inputs.input_text}}
-          NUMBER=${{inputs.input_number}} * 2
+          NUMBER=${{inputs.input_number}}
           echo $TEXT $NUMBER
   
