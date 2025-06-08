@@ -1,0 +1,22 @@
+name: W1
+on:
+  workflow_call:
+    inputs:
+      input_text:
+        type: string
+        required: true
+      input_number:
+        type: number
+        required: true
+  
+  workflow_dispatch:
+  
+jobs:
+  first_job:
+    runs_on: ubumtu-latest
+    steps:
+      - id: Primeiro passo
+        shell: bash
+        run: |
+          echo testando
+  
