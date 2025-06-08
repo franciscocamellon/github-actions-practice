@@ -1,23 +1,27 @@
-name: W2
+name: W2 reutilizável - Adiciona ao texto e dobra o número
 
 on:
   workflow_call:
     inputs:
       input_text:
+        description: Texto de entrada
         type: string
         required: true
       input_number:
+        description: Número de entrada
         type: number
         required: true
     outputs:
       output_text:
+        description: Texto modificado
         value: ${{ jobs.first_job.outputs.job_output_text }}
       output_number:
+        description: Número modificado
         value: ${{ jobs.first_job.outputs.job_output_number }}
 
 jobs:
-  second_job:
-    runs-on: ubuntu-24.04
+  first_job:
+    runs-on: ubuntu-latest
     outputs:
       job_output_text: ${{ steps.first_step.outputs.output_text }}
       job_output_number: ${{ steps.first_step.outputs.output_number }}
@@ -26,9 +30,9 @@ jobs:
         shell: bash
         run: |
           INPUT_TEXT="${{ inputs.input_text }}"
-          # INPUT_NUMBER=${{ inputs.input_number }}
-          FORMATTED_TEXT="${INPUT_TEXT}"
-          # MULTIPLIED_NUMBER=$((INPUT_NUMBER * 2))
+          INPUT_NUMBER=${{ inputs.input_number }}
+          FORMATTED_TEXT="${INPUT_TEXT}-${INPUT_NUMBER}"
+          MULTIPLIED_NUMBER=$(( INPUT_NUMBER * 2 ))
 
           echo "output_text=$FORMATTED_TEXT" >> "$GITHUB_OUTPUT"
-          # echo "output_number=$MULTIPLIED_NUMBER" >> "$GITHUB_OUTPUT"
+          echo "output_number=$MULTIPLIED_NUMBER" >> "$GITHUB_OUTPUT"
