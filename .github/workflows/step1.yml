@@ -17,7 +17,7 @@ on:
 
 jobs:
   first_job:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       job_output_text: ${{ steps.first_step.outputs.output_text }}
       job_output_number: ${{ steps.first_step.outputs.output_number }}
