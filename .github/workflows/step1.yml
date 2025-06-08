@@ -12,6 +12,15 @@ on:
         default: 7
   
   workflow_dispatch:
+    inputs:
+      input_text:
+        default: 'John Snow'
+        type: string
+        required: true
+      input_number:
+        type: number
+        required: true
+        default: 7
   
 jobs:
   first_job:
