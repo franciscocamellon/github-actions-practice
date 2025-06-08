@@ -20,10 +20,8 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
     outputs:
-      job_output_text:
-        value: ${{steps.first_step.outputs.output_text}}
-      job_output_number:
-        value: ${{steps.first_step.outputs.output_number}}
+      job_output_text: ${{steps.first_step.outputs.output_text}}
+      job_output_number: ${{steps.first_step.outputs.output_number}}
     steps:
       - id: first_step
         shell: bash
