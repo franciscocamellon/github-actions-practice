@@ -6,13 +6,13 @@ on:
       input_text:
         type: string
         required: true
-      input_number:
-        type: number
-        required: true
+      # input_number:
+      #   type: number
+      #   required: true
 
 jobs:
   step1:
     uses: ./.github/workflows/step1.yml
     with:
       input_text: ${{ github.event.inputs.input_text }}
-      input_number: ${{ github.event.inputs.input_number }}
+      # input_number: ${{ github.event.inputs.input_number }}
