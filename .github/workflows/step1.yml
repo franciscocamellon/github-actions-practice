@@ -20,7 +20,7 @@ jobs:
       - id: Primeiro_passo
         shell: bash
         run: |
-          TEXT=${{inputs.input_text}}
+          TEXT="${{inputs.input_text}}"
           NUMBER=${{inputs.input_number}}
           echo $TEXT $NUMBER
   
