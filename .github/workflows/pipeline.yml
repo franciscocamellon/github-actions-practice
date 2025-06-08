@@ -16,4 +16,4 @@ jobs:
     uses: ./.github/workflows/step1.yml
     with:
       input_text: '${{inputs.input_text}}'
-      input_number: $((inputs.input_number))
+      input_number: ${{inputs.input_number}}
