@@ -13,7 +13,7 @@ on:
 
 jobs:
   step1:
-    uses: franciscocamellon/github-actions-practice/edit/master/.github/workflows/step1.yml@master
+    uses: 'franciscocamellon/github-actions-practice/edit/master/.github/workflows/step1.yml@master'
     with:
       input_text: '${{inputs.input_text}}'
       input_number: $((inputs.input_number))
