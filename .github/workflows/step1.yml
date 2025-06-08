@@ -29,7 +29,10 @@ jobs:
       - id: Primeiro_passo
         shell: bash
         run: |
-          TEXT="${{inputs.input_text}}"
-          NUMBER=${{inputs.input_number}}
-          echo $TEXT $NUMBER
+          INPUT_TEXT="${{inputs.input_text}}"
+          INPUT_NUMBER=${{inputs.input_number}}
+          FORMATTED_TEXT="${INPUT_TEXT}-${INPUT_NUMBER}"
+          MULTIPLIED_TEXT=$((INPUT_NUMBER * 2))
+          echo $FORMATTED_TEXT
+          echo $MULTIPLIED_TEXT
   
