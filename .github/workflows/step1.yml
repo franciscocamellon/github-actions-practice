@@ -5,9 +5,11 @@ on:
       input_text:
         type: string
         required: true
+        default: John Snow
       input_number:
         type: number
         required: true
+        default: 7
   
   workflow_dispatch:
   
@@ -18,5 +20,7 @@ jobs:
       - id: Primeiro_passo
         shell: bash
         run: |
-          echo testando
+          TEXT=${{inputs.input_text}}
+          NUMBER=${{inputs.input_number * 2}}
+          echo $TEXT $NUMBER
   
