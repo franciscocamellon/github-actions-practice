@@ -1,33 +1,32 @@
 name: W1
+
 on:
   workflow_call:
     inputs:
       input_text:
-        default: "John Snow"
         type: string
         required: true
       input_number:
         type: number
         required: true
-        default: "7"
     outputs:
       output_text:
-        value: ${{jobs.first_job.outputs.job_output_text}}
+        value: ${{ jobs.first_job.outputs.job_output_text }}
       output_number:
-        value: ${{jobs.first_job.outputs.job_output_number}}
+        value: ${{ jobs.first_job.outputs.job_output_number }}
 
 jobs:
   first_job:
     runs-on: ubuntu-latest
     outputs:
-      job_output_text: ${{steps.first_step.outputs.output_text}}
-      job_output_number: ${{steps.first_step.outputs.output_number}}
+      job_output_text: ${{ steps.first_step.outputs.output_text }}
+      job_output_number: ${{ steps.first_step.outputs.output_number }}
     steps:
       - id: first_step
         shell: bash
         run: |
-          INPUT_TEXT="${{inputs.input_text}}"
-          INPUT_NUMBER=${{inputs.input_number}}
+          INPUT_TEXT="${{ inputs.input_text }}"
+          INPUT_NUMBER=${{ inputs.input_number }}
           FORMATTED_TEXT="${INPUT_TEXT}-${INPUT_NUMBER}"
           MULTIPLIED_NUMBER=$((INPUT_NUMBER * 2))
 
