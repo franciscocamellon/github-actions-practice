@@ -4,15 +4,37 @@ on:
   workflow_dispatch:
     inputs:
       input_text:
+        description: "Input text for the pipeline"
+        default: "Hello, World!"
         type: string
         required: true
-      # input_number:
-      #   type: number
-      #   required: true
+      input_number:
+        description: "Input number for the pipeline"
+        default: "42"
+        type: number
+        required: true
 
 jobs:
   step1:
     uses: ./.github/workflows/step1.yml
     with:
-      input_text: ${{ github.event.inputs.input_text }}
-      # input_number: ${{ github.event.inputs.input_number }}
+      input_text: ${{ inputs.input_text }}
+      input_number: ${{ fromJson(inputs.input_number) }}
+  step2:
+    needs: step1
+    uses: ./.github/workflows/step2.yml
+    with:
+      input_text: ${{ needs.step1.outputs.output_text }}
+      input_number: ${{ fromJson(needs.step1.outputs.output_number) }}
+  step3:
+    needs: step2
+    uses: ./.github/workflows/step2.yml
+    with:
+      input_text: ${{ needs.step1.outputs.output_text }}
+      input_number: ${{ fromJson(needs.step1.outputs.output_number) }}
+  step4:
+    needs: step3
+    uses: ./.github/workflows/step2.yml
+    with:
+      input_text: ${{ needs.step1.outputs.output_text }}
+      input_number: ${{ fromJson(needs.step1.outputs.output_number) }}
