@@ -15,7 +15,7 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
     steps:
-      - id: Primeiro passo
+      - id: Primeiro_passo
         shell: bash
         run: |
           echo testando
