@@ -5,12 +5,10 @@ on:
     inputs:
       input_text:
         description: "Input text for the pipeline"
-        default: ${{ vars.INPUT_TEXT }}
         type: string
         required: true
       input_number:
         description: "Input number for the pipeline"
-        default: ${{ vars.INPUT_NUMBER }}
         type: number
         required: true
 
@@ -18,8 +16,8 @@ jobs:
   step1:
     uses: ./.github/workflows/step1.yml
     with:
-      input_text: ${{ inputs.input_text }}
-      input_number: ${{ fromJson(inputs.input_number) }}
+      input_text: ${{ vars.INPUT_TEXT }}
+      input_number: ${{ vars.INPUT_NUMBER }}
   step2:
     needs: step1
     uses: ./.github/workflows/step2.yml
