@@ -2,15 +2,15 @@ name: Pipeline
 
 on:
   workflow_dispatch:
-    inputs:
-      input_text:
-        description: "Input text for the pipeline"
-        type: string
-        required: true
-      input_number:
-        description: "Input number for the pipeline"
-        type: number
-        required: true
+    #inputs:
+    # input_text:
+    #    description: "Input text for the pipeline"
+    #    type: string
+    #    required: true
+    #  input_number:
+    #    description: "Input number for the pipeline"
+    #    type: number
+    #    required: true
 
 jobs:
   step1:
