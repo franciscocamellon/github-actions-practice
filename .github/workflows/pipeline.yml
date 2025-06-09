@@ -17,7 +17,7 @@ jobs:
     uses: ./.github/workflows/step1.yml
     with:
       input_text: ${{ vars.INPUT_TEXT }}
-      input_number: ${{ vars.INPUT_NUMBER }}
+      input_number: ${{ fromJson(vars.INPUT_NUMBER) }}
   step2:
     needs: step1
     uses: ./.github/workflows/step2.yml
