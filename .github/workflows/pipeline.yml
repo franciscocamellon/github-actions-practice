@@ -5,12 +5,12 @@ on:
     inputs:
       input_text:
         description: "Input text for the pipeline"
-        default: $INPUT_TEXT
+        default: ${{ vars.INPUT_TEXT }}
         type: string
         required: true
       input_number:
         description: "Input number for the pipeline"
-        default: $INPUT_NUMBER
+        default: ${{ vars.INPUT_NUMBER }}
         type: number
         required: true
 
